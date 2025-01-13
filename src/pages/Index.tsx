@@ -47,20 +47,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-background transition-colors duration-500 p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="flex justify-end">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-background transition-all duration-500">
+      <div className="max-w-4xl mx-auto p-4 sm:p-8 space-y-8">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Image Compressor
+          </h2>
           <ThemeToggle />
         </div>
         
-        <Card className="p-6 sm:p-8 backdrop-blur-sm bg-card/50 border border-accent/20 shadow-lg transition-all duration-500 hover:shadow-accent/5">
+        <Card className="p-6 sm:p-8 backdrop-blur-sm bg-card/80 border border-accent/20 shadow-lg transition-all duration-500 hover:shadow-accent/5 hover:scale-[1.01]">
           <div className="space-y-8">
-            <div className="text-center space-y-2">
-              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-fade-up">
-                Image Compressor
+            <div className="text-center space-y-4">
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-fade-up">
+                Compress Your Images
               </h1>
-              <p className="text-muted-foreground animate-fade-up delay-100">
-                Upload your image and we'll compress it while maintaining quality
+              <p className="text-muted-foreground animate-fade-up delay-100 max-w-2xl mx-auto">
+                Upload your image and we'll compress it while maintaining quality. Perfect for web optimization.
               </p>
             </div>
 
@@ -69,16 +72,16 @@ const Index = () => {
             </div>
 
             {isCompressing && (
-              <div className="flex items-center justify-center space-x-2 animate-fade-up">
-                <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                <p className="text-primary">Compressing your image...</p>
+              <div className="flex items-center justify-center space-x-3 animate-fade-up bg-primary/5 p-4 rounded-lg">
+                <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                <p className="text-primary font-medium">Compressing your image...</p>
               </div>
             )}
 
             {compressedImageUrl && (
               <div className="space-y-4 animate-fade-up">
                 <Button
-                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-primary/20"
                   onClick={() => {
                     const link = document.createElement('a');
                     link.href = compressedImageUrl;
