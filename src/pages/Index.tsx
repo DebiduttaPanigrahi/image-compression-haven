@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import UploadZone from '@/components/UploadZone';
 import { Download, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Index = () => {
   const [isCompressing, setIsCompressing] = useState(false);
@@ -46,32 +47,38 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-accent/20 p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto">
-        <Card className="p-6 sm:p-8 backdrop-blur-sm bg-card/50">
+    <div className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-background transition-colors duration-500 p-4 sm:p-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="flex justify-end">
+          <ThemeToggle />
+        </div>
+        
+        <Card className="p-6 sm:p-8 backdrop-blur-sm bg-card/50 border border-accent/20 shadow-lg transition-all duration-500 hover:shadow-accent/5">
           <div className="space-y-8">
             <div className="text-center space-y-2">
-              <h1 className="text-3xl font-bold tracking-tight animate-fade-up">
+              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-fade-up">
                 Image Compressor
               </h1>
-              <p className="text-muted-foreground animate-fade-up">
+              <p className="text-muted-foreground animate-fade-up delay-100">
                 Upload your image and we'll compress it while maintaining quality
               </p>
             </div>
 
-            <UploadZone onFileSelect={handleFileSelect} />
+            <div className="animate-fade-up delay-200">
+              <UploadZone onFileSelect={handleFileSelect} />
+            </div>
 
             {isCompressing && (
               <div className="flex items-center justify-center space-x-2 animate-fade-up">
-                <Loader2 className="w-4 h-4 animate-spin" />
-                <p>Compressing your image...</p>
+                <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                <p className="text-primary">Compressing your image...</p>
               </div>
             )}
 
             {compressedImageUrl && (
               <div className="space-y-4 animate-fade-up">
                 <Button
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
                   onClick={() => {
                     const link = document.createElement('a');
                     link.href = compressedImageUrl;
