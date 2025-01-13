@@ -50,7 +50,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-background transition-all duration-500">
       <div className="max-w-4xl mx-auto p-4 sm:p-8 space-y-8">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             Image Compressor
           </h2>
           <ThemeToggle />
